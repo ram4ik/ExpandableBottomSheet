@@ -22,7 +22,9 @@ struct ContentView: View {
             .buttonStyle(.borderedProminent)
             .sheet(isPresented: $presentSheet) {
                 Text("Bottom sheet")
-                    .presentationDetents([.medium, .large])
+                    //.presentationDetents([.medium, .large])
+                    .presentationDetents([.fraction(0.25), .fraction(0.50), .fraction(0.75)])
+                    //.presentationDetents([.height(200), .height(400)])
             }
         }
         .padding()
