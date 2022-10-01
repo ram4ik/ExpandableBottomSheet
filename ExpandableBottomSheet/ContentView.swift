@@ -8,12 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var presentSheet = false
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Text("Expandable bottom sheet")
+            Button {
+                presentSheet.toggle()
+            } label: {
+                Text("Show sheet")
+            }
+            .buttonStyle(.borderedProminent)
+            .sheet(isPresented: $presentSheet) {
+                Text("Bottom sheet")
+                    .presentationDetents([.medium, .large])
+            }
         }
         .padding()
     }
